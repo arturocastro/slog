@@ -1,7 +1,19 @@
 language: c
 os:
-  - linux
+- linux
 compiler:
-  - clang
-  - gcc
-script: "make -C src clean && make -C src"
+- clang
+- gcc
+script: make -C src clean && make -C src
+env:
+  global:
+    secure: ht+rrdAuFpsDKbRfj+ZH5bn548JJnzXPl+H7EjNCFLZ2lBShWkdY4yQNCCPTQq0NYZJbH2ImWr+54jJ36QJtV9xL/LYpGkFAy1JSX9ykEmj4C9CgbqS7odg/tSUpPNYYMdhMI3MCXFYrxsuRLT6V4sBiO9CeqxkeIG3tccyKvS7v6pAxJbZ/e97WKLDFmVsPKdRNhwfXUv2PzaA7UjjjlJTgCbmrdBW3z6NUIxDv5P7R16Y8m+ELWwpvDUVFh7eFI7vLtJmtMBCYF/T282Eo08X3d4YEp9OQ9aBKy1r35X2x9dIU7qnDfC5Pg+wDQabuiQ9UZB8W7iU026zhP8t/xwsqfudW/eNPSNZXcmx18OnqFd68H+n3kJvNIWvdqoPgUk3IHQUHLZ0W25S7l3eWTaRWgKG+qi844zmt7mJ/LBUPYe9GxHFxWwTYr6t3wB5DHa3ZPH0nDnLeO3i7uZXrf3dTbV4O2bUoUfyaAAqTxcTMyB3JDDB0BS0IxWcT3ZtjzywrISJRYbYmmmTNK8g20t64fgZHv/NB+FlsOwJo97qsGlqzJbrlsN387r0AylCElqsAbBba7aeu4fOCE1K15DmBVtkVT9+8PIWlyhB1vImqY6TT2DSpenKjkNg40v5OG6unAEZ2NcYYPXLPFdkJ+t19BGnf9H0slU/jJ6j8vDk=
+addons:
+  coverity_scan:
+    project:
+      name: arturocastro/slog
+      description: Advanced logging library for C/C++
+    notification_email: arturo.castrop@live.com
+    build_command_prepend: "make -C src clean"
+    build command: "make -C src"
+    branch_pattern: coverity_scan
